@@ -81,7 +81,7 @@ func createInputsFromUnspentTransactions(unspentTransactions []Transaction) ([]I
 			OwnersBefore: uo.PublicKeys,
 		}
 		input.Fulfills = &OutputLocation{OutputIndex: 0, TransactionID: *unspentTransactions[0].ID}
-		fmt.Println("uo.PublicKeys",uo.PublicKeys)
+		fmt.Println(input.Fulfills.OutputIndex,"validate_transfer_inputs")
 		inputs = append(inputs, input)
 
 	}

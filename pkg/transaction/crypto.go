@@ -4,6 +4,7 @@ import (
 	"crypto/rand"
 
 	"crypto"
+	"fmt"
 	"strings"
 
 	"github.com/go-interledger/cryptoconditions"
@@ -66,9 +67,12 @@ func (t *Transaction) Sign(keyPairs []*KeyPair) error {
 
 		// If fulfills is not empty add to make unique serialization Txn
 		if input.Fulfills != nil {
+			fmt.Println("not nil")
 			serializedTxn.WriteString(input.Fulfills.TransactionID)
 			serializedTxn.WriteString(string(input.Fulfills.OutputIndex))
 		}
+		
+		fmt.Println(serializedTxn)
 
 		bytes_to_sign := []byte(serializedTxn.String())
 

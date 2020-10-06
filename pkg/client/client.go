@@ -7,7 +7,7 @@ import (
 
 	"fmt"
 
-	"github.com/bigchaindb/go-bigchaindb-driver/pkg/transaction"
+	"github.com/xfinite-io/go-bigchaindb-driver/pkg/transaction"
 	"github.com/pkg/errors"
 )
 

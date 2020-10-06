@@ -6,7 +6,7 @@ import (
 	"crypto"
 	"fmt"
 	"strings"
-	"strconv"
+// 	"strconv"
 	"github.com/go-interledger/cryptoconditions"
 	"github.com/pkg/errors"
 	"golang.org/x/crypto/ed25519"
@@ -68,8 +68,8 @@ func (t *Transaction) Sign(keyPairs []*KeyPair) error {
 		// If fulfills is not empty add to make unique serialization Txn
 		if input.Fulfills != nil {
 			fmt.Println("not nil")
-			serializedTxn.WriteString(input.Fulfills.TransactionID)
-			serializedTxn.Write([]byte(strconv.FormatInt(input.Fulfills.OutputIndex,10)))
+// 			serializedTxn.WriteString(input.Fulfills.TransactionID)
+// 			serializedTxn.Write([]byte(strconv.FormatInt(input.Fulfills.OutputIndex,10)))
 		}
 		
 		fmt.Println("$$$$$$",serializedTxn.String())

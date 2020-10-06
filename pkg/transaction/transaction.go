@@ -175,8 +175,8 @@ func (t *Transaction) createID() (string, error) {
 	}
 
 	// Return hash of serialized txn object
-	h := sha3.Sum256(dbytes)
-	fmt.Println("lll",string(h[:]))
+	h := sha3.Sum256(dbytes[:])
+    	fmt.Printf("SHA3 %x\n", h)	
 	return hex.EncodeToString(h[:]), nil
 }
 

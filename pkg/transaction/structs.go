@@ -45,7 +45,7 @@ type MetadataResponse struct {
 type OutputLocation struct {
 	TransactionID string `json:"transaction_id,omitempty"`
 	// Test if this should be json.Number
-	OutputIndex int64 `json:"output_index,omitempty"`
+	OutputIndex int64 `json:"output_index"`
 }
 
 type Condition struct {

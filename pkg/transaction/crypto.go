@@ -2,7 +2,7 @@ package transaction
 
 import (
 	"crypto/rand"
-
+	"fmt"
 	"crypto"
 	"strings"
 	"strconv"
@@ -99,6 +99,7 @@ func (t *Transaction) Sign(keyPairs []*KeyPair) error {
 		signedTx.Inputs[idx].Fulfillment = &ffSt
 	}
 	//Create ID of transaction (hash of body)
+	fmt.Println(signedTx.String())
 	id, err := signedTx.createID()
 	if err != nil {
 		return errors.Wrap(err, "Could not create ID")

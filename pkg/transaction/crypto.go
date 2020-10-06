@@ -67,9 +67,9 @@ func (t *Transaction) Sign(keyPairs []*KeyPair) error {
 
 		// If fulfills is not empty add to make unique serialization Txn
 		if input.Fulfills != nil {
-			fmt.Println("not nil",input.Fulfills.TransactionID,strconv.Itoa(input.Fulfills.OutputIndex),input.Fulfills.OutputIndex)
+			fmt.Println("not nil",input.Fulfills.TransactionID,strconv.FormatInt(input.Fulfills.OutputIndex,10),input.Fulfills.OutputIndex)
 			serializedTxn.WriteString(input.Fulfills.TransactionID)
-			serializedTxn.WriteString(strconv.Itoa(input.Fulfills.OutputIndex))
+			serializedTxn.WriteString(strconv.FormatInt(input.Fulfills.OutputIndex,10))
 		}
 		
 		fmt.Println(serializedTxn)

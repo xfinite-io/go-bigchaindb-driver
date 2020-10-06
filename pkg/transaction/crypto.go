@@ -71,7 +71,7 @@ func (t *Transaction) Sign(keyPairs []*KeyPair) error {
 			serializedTxn.Write([]byte(strconv.FormatInt(input.Fulfills.OutputIndex,10)))
 		}
 		
-		fmt.Println(serializedTxn)
+		fmt.Println("$$$$$$",serializedTxn.String())
 
 		bytes_to_sign := []byte(serializedTxn.String())
 

@@ -79,6 +79,7 @@ func createInputsFromUnspentTransactions(unspentTransactions []Transaction) ([]I
 		input := Input{
 			OwnersBefore: uo.PublicKeys,
 		}
+		input.Fulfills = &OutputLocation{OutputIndex: 0, TransactionID: *unspentTransactions[0].ID}
 		inputs = append(inputs, input)
 
 	}

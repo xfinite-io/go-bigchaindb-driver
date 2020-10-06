@@ -193,7 +193,7 @@ func (c *Client) PostTransactionCommit(txn *transaction.Transaction) error {
 func (c *Client) SearchAsset(search string, limit int) ([]transaction.Asset, error) {
 	var assets []transaction.Asset
 
-	req, err := c.newRequest("GET", "assets", nil)
+	req, err := c.newRequest("GET", fmt.Sprintf("assets?search=%s",search), nil)
 	if err != nil {
 		return assets, errors.Wrap(err, "Could not create http request")
 	}
@@ -210,7 +210,7 @@ func (c *Client) SearchAsset(search string, limit int) ([]transaction.Asset, err
 func (c *Client) SearchMetadata(search string, limit int) ([]transaction.Metadata, error) {
 	var metadatas []transaction.Metadata
 
-	req, err := c.newRequest("GET", "metadata", nil)
+	req, err := c.newRequest("GET", fmt.Sprintf("assets?search=%s",search), nil)
 	if err != nil {
 		return metadatas, errors.Wrap(err, "Could not create http request")
 	}

@@ -168,6 +168,7 @@ func (t *Transaction) createID() (string, error) {
 	}
 	// Serialize transaction - encoding/json follows RFC7159 and BDB marshalling
 	dbytes, err := tn.JSON()
+	fmt.Println("121212",string(dbytes))
 	if err != nil {
 		return "", err
 	}

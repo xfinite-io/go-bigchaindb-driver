@@ -102,6 +102,7 @@ func (t *Transaction) Sign(keyPairs []*KeyPair) error {
 	//Create ID of transaction (hash of body)
 	fmt.Println(signedTx.String())
 	id, err := signedTx.createID()
+	fmt.Println(id,"id")
 	if err != nil {
 		return errors.Wrap(err, "Could not create ID")
 	}

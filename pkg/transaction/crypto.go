@@ -67,6 +67,7 @@ func (t *Transaction) Sign(keyPairs []*KeyPair) error {
 
 		// If fulfills is not empty add to make unique serialization Txn
 		if input.Fulfills != nil {
+			fmt.Println("not nil")
 			serializedTxn.WriteString(input.Fulfills.TransactionID)
 			x := input.Fulfills.TransactionID
 			serializedTxn.WriteString(strconv.FormatInt(input.Fulfills.OutputIndex, 10))
@@ -99,7 +100,7 @@ func (t *Transaction) Sign(keyPairs []*KeyPair) error {
 		signedTx.Inputs[idx].Fulfillment = &ffSt
 	}
 	//Create ID of transaction (hash of body)
-	fmt.Println(signedTx.String())
+	fmt.Println("1212", signedTx.String(),"1212")
 	id, err := signedTx.createID()
 	if err != nil {
 		return errors.Wrap(err, "Could not create ID")

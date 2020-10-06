@@ -5,6 +5,7 @@ import (
 
 	"crypto"
 	"strings"
+	"strconv"
 
 	"github.com/go-interledger/cryptoconditions"
 	"github.com/pkg/errors"
@@ -67,7 +68,8 @@ func (t *Transaction) Sign(keyPairs []*KeyPair) error {
 		// If fulfills is not empty add to make unique serialization Txn
 		if input.Fulfills != nil {
 			serializedTxn.WriteString(input.Fulfills.TransactionID)
-			serializedTxn.WriteString(string(input.Fulfills.OutputIndex))
+			serializedTxn.WriteString(strconv.FormatInt(input.Fulfills.OutputIndex, 10))
+			signedTx.Inputs[idx].Fulfill = &OutputLocation{OutputIndex: idx, TransactionID: *input.Fulfills.TransactionID}
 		}
 
 		bytes_to_sign := []byte(serializedTxn.String())

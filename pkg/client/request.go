@@ -23,12 +23,12 @@ func (c *Client) newRequest(method, path string, body interface{}) (*http.Reques
 			return nil, err
 		}
 	}
-
-	req, err := http.NewRequest(method, u.String(), buf)
+	x := u.String()
+	x_new = strings.replace( x, "%3F", "?",1)
+	req, err := http.NewRequest(method, x_new, buf)
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println(method, u.String())
 	req.Header = c.baseHeader
 
 	if body != nil {

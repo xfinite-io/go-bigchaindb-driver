@@ -24,7 +24,7 @@ func (c *Client) newRequest(method, path string, body interface{}) (*http.Reques
 		}
 	}
 	x := u.String()
-	x_new := strings.replace( x, "%3F", "?",1)
+	x_new := strings.Replace( x, "%3F", "?",1)
 	req, err := http.NewRequest(method, x_new, buf)
 	if err != nil {
 		return nil, err

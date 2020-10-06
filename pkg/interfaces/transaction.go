@@ -1,8 +1,8 @@
 package interfaces
 
 import (
-	"github.com/bigchaindb/go-bigchaindb-driver/pkg/client"
-	"github.com/bigchaindb/go-bigchaindb-driver/pkg/transaction"
+	"github.com/xfinite-io/go-bigchaindb-driver/pkg/client"
+	"github.com/xfinite-io/go-bigchaindb-driver/pkg/transaction"
 )
 
 type Transaction interface {

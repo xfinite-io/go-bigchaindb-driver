@@ -8,7 +8,6 @@ import (
 	"bytes"
 
 	"strings"
-	"fmt"
 
 	"net/url"
 
@@ -80,8 +79,6 @@ func createInputsFromUnspentTransactions(unspentTransactions []Transaction) ([]I
 		input := Input{
 			OwnersBefore: uo.PublicKeys,
 		}
-		input.Fulfills = &OutputLocation{OutputIndex: 0, TransactionID: *unspentTransactions[0].ID}
-		fmt.Println(input.Fulfills.OutputIndex,"validate_transfer_inputs")
 		inputs = append(inputs, input)
 
 	}

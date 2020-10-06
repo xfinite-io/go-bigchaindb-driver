@@ -1,6 +1,6 @@
 package interfaces
 
-import "github.com/bigchaindb/go-bigchaindb-driver/pkg/transaction"
+import "github.com/xfinite-io/go-bigchaindb-driver/pkg/transaction"
 
 type Client interface {
 	GetBlock(blockHeight string) (transaction.Block, error)

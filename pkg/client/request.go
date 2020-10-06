@@ -6,7 +6,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-
+	"fmt"
 	"github.com/pkg/errors"
 )
 
@@ -28,6 +28,7 @@ func (c *Client) newRequest(method, path string, body interface{}) (*http.Reques
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println(method, u.String())
 	req.Header = c.baseHeader
 
 	if body != nil {

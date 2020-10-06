@@ -70,7 +70,7 @@ func (t *Transaction) Sign(keyPairs []*KeyPair) error {
 			serializedTxn.WriteString(input.Fulfills.TransactionID)
 			x := input.Fulfills.TransactionID
 			serializedTxn.WriteString(strconv.FormatInt(input.Fulfills.OutputIndex, 10))
-			signedTx.Inputs[idx].Fulfills = &OutputLocation{OutputIndex: int64(idx), TransactionID: *x}
+			signedTx.Inputs[idx].Fulfills = &OutputLocation{OutputIndex: int64(idx), TransactionID: x}
 		}
 
 		bytes_to_sign := []byte(serializedTxn.String())
